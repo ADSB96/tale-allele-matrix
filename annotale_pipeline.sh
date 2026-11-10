@@ -102,30 +102,3 @@ do
 NAM=$(echo $i|cut -f 1 -d '/')
 sed "s/^/$NAM\t/g" $i >>AFXoc_TAL_Locations.tsv
 done
-
-####################################### CREATE wHOLE GNEOME PHYLOGENY
-
-from genomes folder
-
-for i in *.fasta
-do
-filename=$(basename -- "$i")
-extension="${filename##*.}"
-filename2="${filename%.*}"
-echo -e $PWD/$filename'\t'$filename2 >>Genomes
-done
-
-
-MakeFasta Genomes ForKchooser
-
-Kchooser ForKchooser
-
-#The optimum value of K is 31.
-
-kSNP3  -in Genomes -k 31 -outdir Results -ML
-
-
-#################################################
-
-
-

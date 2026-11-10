@@ -12,7 +12,7 @@ most common.
 
 | File | Description |
 |---|---|
-| `annotale_pipeline.sh` | Step 1: shell commands to run AnnoTALE on a folder of genomes, assign TALEs to classes, and merge per-genome results into `AFXoc_TAL_RVD.fa` and `AFXoc_TAL_Names.tsv`. Also includes the optional whole-genome phylogeny (kSNP3). |
+| `annotale_pipeline.sh` | Step 1: shell commands to run AnnoTALE on a folder of genomes, assign TALEs to classes, and merge per-genome results into `AFXoc_TAL_RVD.fa` and `AFXoc_TAL_Names.tsv`. |
 | `make_allelemat.R` | Step 2: R script that reads the two merged files and builds the allele matrix plus a per-TALE RVD table. |
 
 ## Workflow overview
@@ -33,8 +33,6 @@ RVD_table.xlsx  +  allelemat_new.xlsx
 - Java
 - [AnnoTALE](http://www.jstacs.de/index.php/AnnoTALE) command-line tool
   (`AnnoTALEcli-1.5.jar`) in the working folder
-- Optional, for the phylogeny: [kSNP3](https://sourceforge.net/projects/ksnp/)
-  (`MakeFasta`, `Kchooser`, `kSNP3`)
 
 ### Setup
 - Put all genome assemblies (`.fasta`) in one folder called `Genomes`.
@@ -56,8 +54,6 @@ RVD_table.xlsx  +  allelemat_new.xlsx
    - `AFXoc_TAL_Names.tsv`: TALE ID → class name key
    - `AFXoc_TAL_AA.fa`, `AFXoc_TAL_DNA.fa`: protein and DNA sequences
    - `AFXoc_TAL_Locations.tsv`: TALE loci (GFF3)
-7. **Phylogeny (optional)**: kSNP3 whole-genome SNP tree (k = 31 for this
-   dataset).
 
 The script is a record of the commands that were run, block by block. Run the
 blocks one at a time instead of executing the whole file at once, because step 3
